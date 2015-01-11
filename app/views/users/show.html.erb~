@@ -1,0 +1,13 @@
+<h1>ur mail<%= current_user.email %> </h1>
+
+<% current_user.posts.each do |post| %>
+  <%= post.content %>
+<% end %>
+</br>
+
+<%= form_for(current_user.relationships.build(followed_id: @user.id)) do |f| %>
+  <div><%=f.hidden_field :followed_id %></div>
+  <%=f.submit "follow", class: "btn btn-large btn-primary" %>
+<% end %>`
+
+
